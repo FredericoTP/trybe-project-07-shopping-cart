@@ -71,7 +71,9 @@ const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', cartItemClickListener);
+  li.addEventListener('click', (element) => {
+    element.target.remove();
+  });
   return li;
 };
 
@@ -91,7 +93,6 @@ const pegarId = (param) => {
     const b = getIdFromProductItem(a).toString();
     addCarrinho(b);
   });
-  
 };
 
 fetchProducts('computador').then((data) => {
