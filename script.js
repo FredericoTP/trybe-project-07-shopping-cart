@@ -4,6 +4,7 @@
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
 
 const sectionItens = document.querySelector('.items');
+const listCartItens = document.querySelector('.cart__items');
 
 /**
  * Função responsável por criar e retornar o elemento de imagem do produto.
@@ -56,7 +57,7 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
+const getIdFromProductItem = (product) => product.querySelector('span.item_id').innerText;
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -74,15 +75,32 @@ const createCartItemElement = ({ id, title, price }) => {
   return li;
 };
 
-window.onload = () => {
-  
- };
+window.onload = () => { };
 
- fetchProducts('computador').then((data) => {
+const addCarrinho = (product) => {
+  fetchItem(product).then((data) => {
+    const { id, title, price } = data;
+    const object = { id, title, price };
+    listCartItens.appendChild(createCartItemElement(object));
+  });
+};
+
+const pegarId = (param) => {
+  param.addEventListener('click', (element) => {
+    const a = element.target.parentNode;
+    const b = getIdFromProductItem(a).toString();
+    addCarrinho(b);
+  });
+  
+};
+
+fetchProducts('computador').then((data) => {
   const { results } = data;
   results.forEach((element) => {
     const { id, title, thumbnail } = element;
     const object = { id, title, thumbnail };
     sectionItens.appendChild(createProductItemElement(object));
   });
+  const itensList = document.querySelectorAll('.item__add');
+  itensList.forEach((item) => pegarId(item));
 });
