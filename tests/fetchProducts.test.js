@@ -22,9 +22,8 @@ describe('1 - Teste a função fetchProducts', () => {
     const response = await fetchProducts('computador');
     expect(response).toEqual(computadorSearch);
   });
-  it('verifica se a função retorna um erro se for chamada sem parâmetro', async () => {
+  it('verifica se a função retorna um erro se for chamada sem parâmetro', () => {
     expect.assertions(1);
-    const response = await fetchProducts('');
-    expect(response).toThrow('You must provide an url');
+    expect(fetchProducts()).rejects.toThrow('You must provide an url');
   });
 });
