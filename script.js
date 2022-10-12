@@ -7,6 +7,7 @@ const sectionItens = document.querySelector('.items');
 const listCartItens = document.querySelector('.cart__items');
 const totalPrice = document.querySelector('.total-price');
 const buttonEmptyCart = document.querySelector('.empty-cart');
+const loading = document.querySelector('.loading');
 
 /**
  * Função responsável por criar e retornar o elemento de imagem do produto.
@@ -133,6 +134,7 @@ fetchProducts('computador').then((data) => {
   });
   const itensList = document.querySelectorAll('.item__add');
   itensList.forEach((item) => pegarId(item));
+  loading.parentNode.removeChild(loading);
 });
 
 const inicializar = () => {
