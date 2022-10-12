@@ -6,6 +6,7 @@
 const sectionItens = document.querySelector('.items');
 const listCartItens = document.querySelector('.cart__items');
 const totalPrice = document.querySelector('.total-price');
+const buttonEmptyCart = document.querySelector('.empty-cart');
 
 /**
  * Função responsável por criar e retornar o elemento de imagem do produto.
@@ -150,6 +151,11 @@ const inicializar = () => {
     }
   }
 };
+
+buttonEmptyCart.addEventListener('click', () => {
+  listCartItens.innerHTML = '';
+  totalPrice.innerHTML = '';
+});
 
 window.onload = () => {
   inicializar();
