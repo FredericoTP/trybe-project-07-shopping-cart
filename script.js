@@ -5,6 +5,7 @@
 
 const sectionItens = document.querySelector('.items');
 const listCartItens = document.querySelector('.cart__items');
+const totalPrice = document.querySelector('.total-price');
 
 /**
  * Função responsável por criar e retornar o elemento de imagem do produto.
@@ -68,6 +69,22 @@ const storage = () => {
   saveCartItems(array);
 };
 
+const cartTotalPrice = (param) => {
+  if (totalPrice.innerText === '') {
+  totalPrice.innerText = param;
+  } else {
+    let price = parseFloat(totalPrice.innerText);
+    price += param;
+    totalPrice.innerText = price;
+  }
+};
+
+const cartTotalPriceMenos = (param) => {
+  let price = parseFloat(totalPrice.innerText);
+    price -= param;
+    totalPrice.innerText = price;
+};
+
 /**
  * Função responsável por criar e retornar um item do carrinho.
  * @param {Object} product - Objeto do produto.
@@ -81,9 +98,11 @@ const createCartItemElement = ({ id, title, price }) => {
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
   li.addEventListener('click', (element) => {
+    cartTotalPriceMenos(price);
     element.target.remove();
     storage();
   });
+  cartTotalPrice(price);
   return li;
 };
 
