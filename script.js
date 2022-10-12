@@ -59,6 +59,15 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  */
 const getIdFromProductItem = (product) => product.querySelector('span.item_id').innerText;
 
+const storage = () => {
+  const list = document.getElementsByTagName('li');
+  const array = [];
+  for (let index = 0; index < list.length; index += 1) {
+    array.push(list[index].innerText);
+  }
+  saveCartItems(array);
+};
+
 /**
  * Função responsável por criar e retornar um item do carrinho.
  * @param {Object} product - Objeto do produto.
@@ -73,17 +82,17 @@ const createCartItemElement = ({ id, title, price }) => {
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
   li.addEventListener('click', (element) => {
     element.target.remove();
+    storage();
   });
   return li;
 };
-
-window.onload = () => { };
 
 const addCarrinho = (product) => {
   fetchItem(product).then((data) => {
     const { id, title, price } = data;
     const object = { id, title, price };
     listCartItens.appendChild(createCartItemElement(object));
+    storage();
   });
 };
 
@@ -105,3 +114,24 @@ fetchProducts('computador').then((data) => {
   const itensList = document.querySelectorAll('.item__add');
   itensList.forEach((item) => pegarId(item));
 });
+
+const inicializar = () => {
+  const items = getSavedCartItems('cartItems');
+  if (items) {
+    const toObject = JSON.parse(items);
+    for (let index = 0; index < toObject.length; index += 1) {
+      const li = document.createElement('li');
+      li.innerText = toObject[index];
+      li.className = 'cart__item';
+      listCartItens.appendChild(li);
+      li.addEventListener('click', (element) => {
+        element.target.remove();
+        storage();
+      });
+    }
+  }
+};
+
+window.onload = () => {
+  inicializar();
+};
