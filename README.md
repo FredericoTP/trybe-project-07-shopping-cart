@@ -322,6 +322,8 @@ Uma requisição à API gasta um certo tempo e durante esse processo a pessoa qu
 
 ## 100% :heavy_check_mark:
 
+![Project-Shopping-Cart-Grade](https://github.com/FredericoTP/trybe-project-07-shopping-cart/blob/main/images/carrinho%20de%20compras-grade.png?raw=true)
+  
 <br />
 
 ## 3- Preview
