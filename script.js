@@ -73,7 +73,7 @@ const storage = () => {
 
 const cartTotalPrice = (param) => {
   if (totalPrice.innerText === '') {
-  totalPrice.innerText = param;
+    totalPrice.innerText = param;
   } else {
     let price = parseFloat(totalPrice.innerText);
     price += param;
@@ -83,8 +83,8 @@ const cartTotalPrice = (param) => {
 
 const cartTotalPriceMenos = (param) => {
   let price = parseFloat(totalPrice.innerText);
-    price -= param;
-    totalPrice.innerText = price;
+  price -= param;
+  totalPrice.innerText = price;
 };
 
 /**
@@ -157,6 +157,7 @@ const inicializar = () => {
 buttonEmptyCart.addEventListener('click', () => {
   listCartItens.innerHTML = '';
   totalPrice.innerHTML = '';
+  localStorage.setItem('cartItems', []);
 });
 
 window.onload = () => {
