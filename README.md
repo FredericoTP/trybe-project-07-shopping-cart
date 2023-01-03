@@ -4,7 +4,7 @@
 
 Nesse projeto foi desenvolvido um carrinho de compras totalmente dinâmico, consumindo dados diretamente de uma API. Além disso, foi colocado em prética o TDD  (Test Driven Development) para garantir um código de qualidade, percebendo os casos de uso da sua aplicação e garantindo que ela está funcionando da maneira correta!
 
-# Acesse o projeto clicando [aqui]()! :green_heart:
+# Acesse o projeto clicando [aqui](https://fredericotp.github.io/trybe-project-07-shopping-cart/)! :green_heart:
 
 <br />
 
@@ -327,3 +327,6 @@ Uma requisição à API gasta um certo tempo e durante esse processo a pessoa qu
 <br />
 
 ## 3- Preview
+
+![Project-Shopping-Cart-Preview](https://github.com/FredericoTP/trybe-project-07-shopping-cart/blob/main/images/shopping-cart-preview.png?raw=true)
+  
