@@ -1,6 +1,6 @@
 # :computer: Projeto Shopping Cart :computer:
 
-Nesse projeto foi desenvolvido um carrinho de compras totalmente dinâmico, consumindo dados diretamente de uma API. Além disso, foi colocado em prética o TDD  (Test Driven Development) para garantir um código de qualidade, percebendo os casos de uso da sua aplicação e garantindo que ela está funcionando da maneira correta!
+Nesse projeto foi desenvolvido um carrinho de compras totalmente dinâmico, consumindo dados diretamente de uma API. Além disso, foi colocado em prática o TDD  (Test Driven Development) para garantir um código de qualidade, percebendo os casos de uso da sua aplicação e garantindo que ela está funcionando da maneira correta!
 
 <br />
 
